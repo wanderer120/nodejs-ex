@@ -92,9 +92,9 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
-app.get("/test/*", function(request, response) {
+app.get("/account/getbalance/membercode/*", function(request, response) {
   console.log(request.body); //This prints the JSON document received (if it is a JSON document)
-  response.send('{"test":"ok"}');
+  response.send('{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}');
 });
 
 app.post("/test", function(request, response) {
