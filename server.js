@@ -4,10 +4,16 @@ var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
 
+const bodyParser = require("body-parser");
+
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
@@ -100,7 +106,7 @@ app.get("/account/getbalance/membercode/*", function(request, response) {
 
 app.post("/account/placeBet", function(request, response) {
   requestlog = requestlog + "\n" + request.body;
-  console.log(request); //This prints the JSON document received (if it is a JSON document)
+  console.log(request.body); //This prints the JSON document received (if it is a JSON document)
   response.send('{"code":0, "message":"success", "balance":9999.99, "status": ""}');
 });
 app.get("/getRequestLog", function(request, response) {
