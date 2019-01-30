@@ -3,17 +3,14 @@ var requestlog = "";
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
-
-const bodyParser = require("body-parser");
+var bodyParser = require('body-parser');
 
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
@@ -100,7 +97,6 @@ app.get('/pagecount', function (req, res) {
 });
 
 app.get("/account/getbalance/membercode/*", function(request, response) {
-  console.log(request.body); //This prints the JSON document received (if it is a JSON document)
   response.send('{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}');
 });
 
@@ -110,7 +106,6 @@ app.post("/account/placeBet", function(request, response) {
   response.send('{"code":0, "message":"success", "balance":9999.99, "status": ""}');
 });
 app.get("/getRequestLog", function(request, response) {
-  console.log("aaaa"); //This prints the JSON document received (if it is a JSON document)
   response.send(requestlog);
   requestlog = "";
 });
