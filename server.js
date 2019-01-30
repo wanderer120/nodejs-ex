@@ -104,7 +104,7 @@ app.post("/account/placeBet", function(request, response) {
   response.send('{"code":0, "message":"success", "balance":9999.99, "status": ""}');
 });
 app.get("/getRequestLog", function(request, response) {
-  console.log(request.body); //This prints the JSON document received (if it is a JSON document)
+  console.log("aaaa"); //This prints the JSON document received (if it is a JSON document)
   response.send(requestlog);
   requestlog = "";
 });
