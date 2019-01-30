@@ -2,7 +2,7 @@
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
-    
+
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
@@ -90,6 +90,15 @@ app.get('/pagecount', function (req, res) {
   } else {
     res.send('{ pageCount: -1 }');
   }
+});
+
+app.get("/test", function(request, response) {
+  console.log(request.body); //This prints the JSON document received (if it is a JSON document)
+  response.send('{"test":"ok"}');
+});
+
+app.post("/test", function(request, response) {
+  console.log(request.body); //This prints the JSON document received (if it is a JSON document)
 });
 
 // error handling
