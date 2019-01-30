@@ -92,7 +92,7 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
-app.get("/test", function(request, response) {
+app.get("/test/*", function(request, response) {
   console.log(request.body); //This prints the JSON document received (if it is a JSON document)
   response.send('{"test":"ok"}');
 });
