@@ -111,6 +111,11 @@ app.post("/account/placeBet", function(request, response) {
   console.log(request.rawBody); //This prints the JSON document received (if it is a JSON document)
   response.send('{"code":0, "message":"success", "balance":9999.99, "status": ""}');
 });
+app.post("/account/settlement", function(request, response) {
+  requestlog = requestlog + "\n" + request.rawBody;
+  console.log(request.rawBody); //This prints the JSON document received (if it is a JSON document)
+  response.send('{"code":0, "message":"success", "balance":9999.99, "status": ""}');
+});
 app.get("/getRequestLog", function(request, response) {
   response.send(requestlog);
   requestlog = "";
