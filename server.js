@@ -1,4 +1,4 @@
-var requestlog;
+var requestlog = "";
 //  OpenShift sample Node application
 var express = require('express'),
     app     = express(),
@@ -106,6 +106,7 @@ app.post("/account/placeBet", function(request, response) {
 app.get("/getRequestLog", function(request, response) {
   console.log(request.body); //This prints the JSON document received (if it is a JSON document)
   response.send(requestlog);
+  requestlog = "";
 });
 // error handling
 app.use(function(err, req, res, next){
