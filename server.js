@@ -103,20 +103,23 @@ app.get('/pagecount', function (req, res) {
 });
 
 app.get("/account/getbalance/membercode/*", function(request, response) {
+  requestlog = requestlog + "\n" + request.rawBody;
   response.send('{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}');
 });
 
 app.post("/account/placeBet", function(request, response) {
   requestlog = requestlog + "\n" + request.rawBody;
   console.log(request.rawBody); //This prints the JSON document received (if it is a JSON document)
+  console.log(JSON.stringify(res.headers));
   console.log("placeBet sending back: {\"code\":0, \"message\":\"success \", \"balance\":9998.99, \"status\": \"\"}");
   response.send('{"code":0, "message":"success", "balance":9998.99, "status": ""}');
 });
 app.post("/account/settlement", function(request, response) {
   requestlog = requestlog + "\n" + request.rawBody;
   console.log(request.rawBody); //This prints the JSON document received (if it is a JSON document)
-  console.log("settlement sending back: {\"code\":405, \"message\":\"notsuccess405 \", \"balance\":9998.99, \"status\": \"\"}");
-  response.send('{"code":405, "message":"not success405 ", "balance":9998.99, "status": ""}');
+  console.log(JSON.stringify(res.headers));
+  console.log("settlement sending back: {\"code\":0, \"message\":\"success \", \"balance\":9998.99, \"status\": \"\"}");
+  response.send('{"code":0, "message":"success", "balance":9998.99, "status": ""}');
 });
 app.get("/getRequestLog", function(request, response) {
   response.send(requestlog);
