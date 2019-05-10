@@ -112,8 +112,8 @@ app.post("/account/placeBet", function(request, response) {
   requestlog = requestlog + "\n" + request.rawBody;
   console.log(request.rawBody); //This prints the JSON document received (if it is a JSON document)
   console.log(JSON.stringify(request.headers));
-  console.log("placeBet sending back: {\"code\":406, \"message\":\"Invalid Bet Request \", \"balance\":9998.99, \"status\": \"\"}");
-  response.send('{"code":406, "message":"Invalid Bet Request", "balance":9998.99, "status": ""}');
+  console.log("placeBet sending back: {\"code\":0, \"message\":\"success \", \"balance\":9998.99, \"status\": \"\"}");
+  response.send('{"code":0, "message":"success", "balance":9998.99, "status": ""}');
 });
 app.post("/account/settlement", function(request, response) {
   requestlog = requestlog + "\n" + request.rawBody;
