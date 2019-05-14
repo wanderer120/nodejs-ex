@@ -119,8 +119,8 @@ app.post("/account/settlement", function(request, response) {
   requestlog = requestlog + "\n" + request.rawBody;
   console.log(request.rawBody); //This prints the JSON document received (if it is a JSON document)
   console.log(JSON.stringify(request.headers));
-  console.log("settlement sending back: {\"code\":0, \"message\":\"success \", \"balance\":9998.99, \"status\": \"\"}");
-  response.send('{"code":0, "message":"success", "balance":9998.99, "status": ""}');
+  console.log("settlement sending back: {\"code\":-1, \"message\":\"notsuccess \", \"balance\":9998.99, \"status\": \"\"}");
+  response.send('{"code":-1, "message":"notsuccess", "balance":9998.99, "status": ""}');
 });
 app.get("/getRequestLog", function(request, response) {
   response.send(requestlog);
