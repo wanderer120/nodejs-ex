@@ -102,6 +102,10 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
+var getBalanceRespondJsonDefault = '{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}';
+var placebetRespondJsonDefault = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
+var settlementRespondJsonDefault = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
+
 var getBalanceRespondJson = '{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}';
 var placebetRespondJson = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
 var settlementRespondJson = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
@@ -130,6 +134,10 @@ app.post("/setrespond/settlement", function(request, response) {
   settlementRespondJson = request.rawBody;
   console.log(request.rawBody);
   response.send(requestlog);
+});
+app.get("/resetrespond/settlement", function(request, response) {
+  settlementRespondJson = getBalanceRespondJsonDefault;
+  console.log(getBalanceRespondJsonDefault);
 });
 app.get("/getRequestLog", function(request, response) {
   response.send(requestlog);
