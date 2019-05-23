@@ -133,7 +133,7 @@ app.post("/account/settlement", function(request, response) {
 app.post("/setrespond/settlement", function(request, response) {
   settlementRespondJson = request.rawBody;
   console.log(request.rawBody);
-  response.send(requestlog);
+  response.send("ok");
 });
 app.get("/resetrespond/settlement", function(request, response) {
   settlementRespondJson = getBalanceRespondJsonDefault;
