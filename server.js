@@ -102,25 +102,34 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
+var getBalanceRespondJson = '{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}';
+var placebetRespondJson = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
+var settlementRespondJson = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
 app.get("/account/getbalance/membercode/*", function(request, response) {
   console.log(JSON.stringify(request.headers));
+  console.log("getbalance sending back:"+getBalanceRespondJson);
   requestlog = requestlog + "\n" + request.rawBody;
-  response.send('{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}');
+  response.send(getBalanceRespondJson);
 });
 
 app.post("/account/placeBet", function(request, response) {
   requestlog = requestlog + "\n" + request.rawBody;
   console.log(request.rawBody); //This prints the JSON document received (if it is a JSON document)
   console.log(JSON.stringify(request.headers));
-  console.log("placeBet sending back: {\"code\":0, \"message\":\"success \", \"balance\":9998.99, \"status\": \"\"}");
-  response.send('{"code":0, "message":"success", "balance":9998.99, "status": ""}');
+  console.log("placeBet sending back:"+placebetRespondJson);
+  response.send(placebetRespondJson);
 });
 app.post("/account/settlement", function(request, response) {
   requestlog = requestlog + "\n" + request.rawBody;
   console.log(request.rawBody); //This prints the JSON document received (if it is a JSON document)
   console.log(JSON.stringify(request.headers));
-  console.log("settlement sending back: {\"code\":0, \"message\":\"success \", \"balance\":9998.99, \"status\": \"\"}");
-  response.send('{"code":0, "message":"success", "balance":9998.99, "status": ""}');
+  console.log("settlement sending back:"+settlementRespondJson);
+  response.send(settlementRespondJson);
+});
+app.post("/setrespond/settlement", function(request, response) {
+  settlementRespondJson = request.rawBody;
+  console.log(request.rawBody);
+  response.send(requestlog);
 });
 app.get("/getRequestLog", function(request, response) {
   response.send(requestlog);
