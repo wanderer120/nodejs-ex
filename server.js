@@ -147,12 +147,7 @@ app.get("/helper/getRequestLog", function(request, response) {
 });
 app.post("/helper/createPlayer", function(request, response) {
   var requestParam = request.rawBody;
-  console.log(request.rawBody);
-  console.log(requestParam);
-  var playerJson = {"login":requestParam.login,"balance":0};
-
-  console.log(requestParam.login);
-  requestlog = "";
+  console.log("aaasss");
 });
 // error handling
 app.use(function(err, req, res, next){
