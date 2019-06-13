@@ -102,6 +102,8 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
+var playerArr = [];
+
 var getBalanceRespondJsonDefault = '{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}';
 var placebetRespondJsonDefault = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
 var settlementRespondJsonDefault = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
@@ -130,17 +132,23 @@ app.post("/account/settlement", function(request, response) {
   console.log("settlement sending back:"+settlementRespondJson);
   response.send(settlementRespondJson);
 });
-app.post("/setrespond/settlement", function(request, response) {
+app.post("/helper/setrespond/settlement", function(request, response) {
   settlementRespondJson = request.rawBody;
   console.log(request.rawBody);
   response.send("ok");
 });
-app.get("/resetrespond/settlement", function(request, response) {
+app.get("/helper/resetrespond/settlement", function(request, response) {
   settlementRespondJson = getBalanceRespondJsonDefault;
   console.log(getBalanceRespondJsonDefault);
 });
-app.get("/getRequestLog", function(request, response) {
+app.get("/helper/getRequestLog", function(request, response) {
   response.send(requestlog);
+  requestlog = "";
+});
+app.get("/helper/createPlayer", function(request, response) {
+  var requestParam = request.rawBody;
+  var playerJson = {"login":requestParam.login,"balance":0};
+  console.log(requestParam.login);
   requestlog = "";
 });
 // error handling
