@@ -146,12 +146,23 @@ app.get("/helper/getRequestLog", function(request, response) {
   requestlog = "";
 });
 app.post("/helper/createPlayer", function(request, response) {
-  var requestParam = request.rawBody;
-  var playerJson = {"login":requestParam.login,"balance":0};
   var param = JSON.parse(request.rawBody);
-  console.log(request.rawBody);
-  console.log(param.login);
-  requestlog = "";
+  var playerexist = false;
+  var playerJson = {"login":"-1","balance":0};
+  for(var i=0;i<playerArr.length;i++){
+    if(playerArr[i].login==param.login){
+      playerexist=true;
+      playerJson = playerArr[i];
+      break;
+    }
+  }
+  if(!playerexist){
+    playerJson = {"login":param.login,"balance":0};
+    if(param.balance > 0){
+      playerJson.balance = param.balance;
+    }
+  }
+  response.send(playerJson);
 });
 // error handling
 app.use(function(err, req, res, next){
