@@ -192,7 +192,7 @@ var checkplayer = function(login){
 var getPlayer = function(login){
   for(var i=0;i<playerArr.length;i++){
     if(playerArr[i].login==login){
-      return=playerArr[i];
+      return playerArr[i];
     }
   }
   return null;
