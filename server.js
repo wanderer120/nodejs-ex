@@ -108,7 +108,7 @@ var getBalanceRespondJsonDefault = '{"code":0, "message":"success", "balance":99
 var placebetRespondJsonDefault = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
 var settlementRespondJsonDefault = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
 
-var getBalanceRespondJson = '{"code":0, "message":"success", "balance":100002004.77, "currency": "USD"}';
+var getBalanceRespondJson = '{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}';
 var placebetRespondJson = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
 var settlementRespondJson = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
 app.get("/account/getbalance/membercode/*", function(request, response) {
