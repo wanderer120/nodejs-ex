@@ -138,7 +138,16 @@ app.post("/helper/setrespond/settlement", function(request, response) {
   response.send("ok");
 });
 app.get("/helper/resetrespond/settlement", function(request, response) {
-  settlementRespondJson = getBalanceRespondJsonDefault;
+  settlementRespondJson = settlementRespondJsonDefault;
+  console.log(getBalanceRespondJsonDefault);
+});
+app.post("/helper/setrespond/getbalance", function(request, response) {
+  getBalanceRespondJson = request.rawBody;
+  console.log(request.rawBody);
+  response.send("ok");
+});
+app.get("/helper/resetrespond/getbalance", function(request, response) {
+  getBalanceRespondJson = getBalanceRespondJsonDefault;
   console.log(getBalanceRespondJsonDefault);
 });
 app.get("/helper/getRequestLog", function(request, response) {
