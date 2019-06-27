@@ -108,7 +108,7 @@ var getBalanceRespondJsonDefault = '{"code":0, "message":"success", "balance":99
 var placebetRespondJsonDefault = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
 var settlementRespondJsonDefault = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
 
-var getBalanceRespondJson = '{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}';
+var getBalanceRespondJson = '{"code":0, "message":"success", "balance":100002004.77, "currency": "USD"}';
 var placebetRespondJson = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
 var settlementRespondJson = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
 app.get("/account/getbalance/membercode/*", function(request, response) {
@@ -152,7 +152,7 @@ app.get("/helper/purgePlayer", function(request, response) {
 app.post("/helper/createPlayer", function(request, response) {
   var param = JSON.parse(request.rawBody);
   var playerexist = false;
-  var playerJson =  = {"login":"-1","balance":0};
+  var playerJson =  {"login":"-1","balance":0};
   var isPlayerExist = checkplayer(param.login);
   if(isPlayerExist){
     playerJson = getPlayer(param.login);
