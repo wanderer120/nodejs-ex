@@ -184,7 +184,7 @@ app.use(function(err, req, res, next){
 var checkplayer = function(login){
   for(var i=0;i<playerArr.length;i++){
     if(playerArr[i].login==login){
-      return=true;
+      return true;
     }
   }
   return false;
