@@ -105,12 +105,12 @@ app.get('/pagecount', function (req, res) {
 var playerArr = [];
 
 var getBalanceRespondJsonDefault = '{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}';
-var placebetRespondJsonDefault = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
-var settlementRespondJsonDefault = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
+var placebetRespondJsonDefault = '{"code":0, "message":"success", "balance":5998.99, "status": ""}';
+var settlementRespondJsonDefault = '{"code":0, "message":"success", "balance":1998.99, "status": ""}';
 
-var getBalanceRespondJson = '{"code":0, "message":"success", "balance":100002004.77, "currency": "USD"}';
-var placebetRespondJson = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
-var settlementRespondJson = '{"code":0, "message":"success", "balance":9998.99, "status": ""}';
+var getBalanceRespondJson = '{"code":0, "message":"success", "balance":9999.99, "currency": "USD"}';
+var placebetRespondJson = '{"code":0, "message":"success", "balance":5998.99, "status": ""}';
+var settlementRespondJson = '{"code":0, "message":"success", "balance":1998.99, "status": ""}';
 app.get("/account/getbalance/membercode/*", function(request, response) {
   console.log(JSON.stringify(request.headers));
   console.log("getbalance sending back:"+getBalanceRespondJson);
