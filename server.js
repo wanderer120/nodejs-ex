@@ -139,7 +139,7 @@ app.post("/helper/setrespond/placebet", function(request, response) {
 });
 app.get("/helper/resetrespond/placebet", function(request, response) {
   placebetRespondJson = placebetRespondJsonDefault;
-  console.log(getBalanceRespondJsonDefault);
+  console.log("resetrespond - placebet");
 });
 app.post("/helper/setrespond/settlement", function(request, response) {
   settlementRespondJson = request.rawBody;
@@ -148,7 +148,7 @@ app.post("/helper/setrespond/settlement", function(request, response) {
 });
 app.get("/helper/resetrespond/settlement", function(request, response) {
   settlementRespondJson = settlementRespondJsonDefault;
-  console.log(getBalanceRespondJsonDefault);
+  console.log("resetrespond - settlement");
 });
 app.post("/helper/setrespond/getbalance", function(request, response) {
   getBalanceRespondJson = request.rawBody;
