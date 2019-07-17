@@ -132,6 +132,15 @@ app.post("/account/settlement", function(request, response) {
   console.log("settlement sending back:"+settlementRespondJson);
   response.send(settlementRespondJson);
 });
+app.post("/helper/setrespond/placebet", function(request, response) {
+  placebetRespondJson = request.rawBody;
+  console.log(request.rawBody);
+  response.send("ok");
+});
+app.get("/helper/resetrespond/placebet", function(request, response) {
+  placebetRespondJson = placebetRespondJsonDefault;
+  console.log(getBalanceRespondJsonDefault);
+});
 app.post("/helper/setrespond/settlement", function(request, response) {
   settlementRespondJson = request.rawBody;
   console.log(request.rawBody);
